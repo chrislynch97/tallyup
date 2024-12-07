@@ -63,12 +63,13 @@ const formOpts = formOptions({
 });
 
 export default function LogActivityPage() {
-    const { Field, handleSubmit, getFieldValue, setFieldValue } = useForm({
-        ...formOpts,
-        onSubmit: async ({ value }) => {
-            console.log(value);
-        },
-    });
+    const { Field, handleSubmit, getFieldValue, setFieldValue, state } =
+        useForm({
+            ...formOpts,
+            onSubmit: async ({ value }) => {
+                console.log(value);
+            },
+        });
 
     return (
         <Container>

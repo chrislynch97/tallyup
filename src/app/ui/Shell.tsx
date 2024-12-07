@@ -18,7 +18,7 @@ const MenuOptions = () => (
         <Button variant={"white"} component={"a"} href={"/profile"}>
             Profile
         </Button>
-        <Button component={"a"} href={"/log-activity"}>
+        <Button variant={"white"} component={"a"} href={"/log-activity"}>
             Log Activity
         </Button>
     </>
@@ -30,7 +30,10 @@ export default function Shell() {
 
     return (
         <AppShell
-            header={{ height: 60, collapsed: !pinned, offset: false }}
+            header={{
+                height: 60,
+                collapsed: !pinned,
+            }}
             navbar={{
                 width: 300,
                 breakpoint: "sm",

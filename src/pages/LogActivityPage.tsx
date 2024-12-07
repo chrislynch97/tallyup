@@ -63,13 +63,12 @@ const formOpts = formOptions({
 });
 
 export default function LogActivityPage() {
-    const { Field, handleSubmit, getFieldValue, setFieldValue, state } =
-        useForm({
-            ...formOpts,
-            onSubmit: async ({ value }) => {
-                console.log(value);
-            },
-        });
+    const { Field, handleSubmit, getFieldValue, setFieldValue } = useForm({
+        ...formOpts,
+        onSubmit: async ({ value }) => {
+            console.log(value);
+        },
+    });
 
     return (
         <Container>
@@ -101,7 +100,10 @@ export default function LogActivityPage() {
                                 }
                                 label={"Activity type"}
                                 onBlur={handleBlur}
-                                onChange={(value) => handleChange(value)}
+                                onChange={(value) => {
+                                    if (value == null) return;
+                                    handleChange(value);
+                                }}
                                 placeholder={"Select an activity type"}
                                 required={true}
                                 searchable={true}
@@ -120,7 +122,10 @@ export default function LogActivityPage() {
                                 }
                                 label={"Date"}
                                 onBlur={handleBlur}
-                                onChange={(value) => handleChange(value)}
+                                onChange={(value) => {
+                                    if (value == null) return;
+                                    handleChange(value);
+                                }}
                                 placeholder={"Select date"}
                                 required={true}
                             />
